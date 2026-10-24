@@ -1,0 +1,397 @@
+{
+  "meta": {
+    "home": {
+      "title": "Adiel Soares | Product Designer, UX/UI & Frontend Engineer",
+      "description": "Adiel Soares é Senior Product Designer, UX/UI Designer e Frontend Engineer. Design de produtos digitais, Design Systems e desenvolvimento frontend com React."
+    },
+    "portfolio": {
+      "title": "Portfólio de atuação | Adiel Soares",
+      "description": "Estratégia de produto, Design Systems, engenharia frontend e produtos institucionais: áreas, métodos e entregáveis da atuação de Adiel Soares."
+    },
+    "notFound": {
+      "title": "Página não encontrada | Adiel Soares",
+      "description": "O endereço acessado não existe ou foi alterado."
+    },
+    "ogAlt": "Adiel Soares — Product Design, UX/UI e Frontend Engineering",
+    "ogTagline": "Design de produto com visão de engenharia."
+  },
+  "a11y": {
+    "skipToContent": "Pular para o conteúdo",
+    "openMenu": "Abrir menu",
+    "closeMenu": "Fechar menu",
+    "menu": "Menu",
+    "mainNav": "Navegação principal",
+    "mobileNav": "Menu de navegação",
+    "footerNav": "Navegação do rodapé",
+    "languageSelector": "Idioma",
+    "languages": {
+      "pt-BR": "Português (Brasil)",
+      "en": "English",
+      "es": "Español"
+    },
+    "contrast": "Alto contraste",
+    "contrastHintOn": "Desativar alto contraste",
+    "contrastHintOff": "Ativar alto contraste",
+    "themeLabel": "Tema",
+    "themeOptions": { "light": "Claro", "dark": "Escuro" },
+    "preferences": "Preferências de exibição",
+    "homeLink": "Adiel Soares — página inicial",
+    "newTab": "(abre em nova aba)",
+    "illustration": "Ilustração conceitual",
+    "backToTop": "Voltar ao topo"
+  },
+  "nav": {
+    "home": "Início",
+    "about": "Sobre",
+    "expertise": "Expertise",
+    "portfolio": "Portfólio",
+    "journey": "Trajetória",
+    "contact": "Contato",
+    "cta": "Vamos conversar?"
+  },
+  "months": ["jan.", "fev.", "mar.", "abr.", "mai.", "jun.", "jul.", "ago.", "set.", "out.", "nov.", "dez."],
+  "hero": {
+    "eyebrow": "Product Design · UX/UI · Frontend",
+    "title": "Design de produto\ncom visão de engenharia.",
+    "role": "Senior Product Designer · Frontend Engineer",
+    "text": "Sou Adiel Soares, Product Designer com forte atuação em Frontend Engineering. Trabalho da definição da experiência à implementação das interfaces, conectando necessidades dos usuários, decisões de produto e qualidade técnica.",
+    "ctaPrimary": "Conhecer minha atuação",
+    "ctaSecondary": "Entrar em contato",
+    "signature": "Senior Product Designer | UX/UI Designer | Frontend Engineer",
+    "portraitAlt": "Retrato de Adiel Soares sorrindo, ao ar livre, com camiseta azul.",
+    "portraitCaption": "Adiel Soares",
+    "facts": {
+      "currentLabel": "Atualmente",
+      "currentValue": "Senior UX/UI Designer na G4F",
+      "sinceLabel": "Produtos digitais",
+      "sinceValue": "Desde 2017",
+      "focusLabel": "Atuação",
+      "focusValue": "Do discovery ao código"
+    },
+    "specialtiesLabel": "Especialidades"
+  },
+  "about": {
+    "eyebrow": "Sobre",
+    "title": "Da estratégia à interface em produção.",
+    "p1": "Trabalho com produtos digitais desde 2017. Comecei desenvolvendo sistemas e interfaces e, com o tempo, passei a participar cada vez mais das decisões de produto: entender o problema, organizar a informação, desenhar a interação e acompanhar a implementação.",
+    "p2": "Hoje atuo como Senior UX/UI Designer. A base em engenharia me ajuda a propor soluções que fazem sentido para quem usa, para os objetivos da instituição e para quem vai construir e manter o produto.",
+    "p3": "Passei por G4F, Capgemini, IBTI e Aparece Brasil, em projetos para organizações públicas e empresas privadas. Boa parte desse trabalho envolveu sistemas institucionais, fluxos administrativos e interfaces que precisam seguir padrões consistentes.",
+    "cta": "Explorar competências",
+    "focusLabel": "Onde minha experiência é mais densa",
+    "focus": [
+      "Sistemas institucionais e corporativos",
+      "Interfaces com alta complexidade funcional",
+      "Fluxos administrativos e de aprovação",
+      "Componentes reutilizáveis e Design Systems",
+      "Padronização entre produtos e equipes"
+    ],
+    "employersLabel": "Empresas em que atuei",
+    "employersNote": "Empregadores diretos. Detalhes de projetos e das instituições atendidas não são divulgados."
+  },
+  "expertise": {
+    "eyebrow": "Expertise",
+    "title": "Produto, experiência e engenharia em uma mesma perspectiva.",
+    "intro": "Três frentes que se complementam. Atuar nas três permite antecipar problemas de usabilidade, de consistência e de implementação antes que virem retrabalho.",
+    "cta": "Ver minha trajetória",
+    "skillsLabel": "Competências",
+    "visual": { "product": ["Pesquisa", "Definição", "Fluxos", "Solução"] },
+    "cards": {
+      "productDesign": {
+        "title": "Product Design",
+        "text": "Pesquisa, descoberta, estratégia, arquitetura da informação, jornadas e definição de soluções centradas nas necessidades dos usuários."
+      },
+      "uxui": {
+        "title": "UX/UI Design & Design Systems",
+        "text": "Construção de interfaces, prototipação, padrões de interação, documentação, componentes reutilizáveis e acessibilidade."
+      },
+      "frontend": {
+        "title": "Frontend Engineering",
+        "text": "Desenvolvimento de interfaces com foco em arquitetura de componentes, fidelidade visual, escalabilidade, responsividade e qualidade técnica."
+      }
+    }
+  },
+  "portfolio": {
+    "eyebrow": "Portfólio",
+    "title": "Minha atuação em produtos digitais.",
+    "text": "Uma visão das disciplinas e práticas que fazem parte do meu trabalho, desde a estruturação da experiência até a construção de interfaces.",
+    "note": "As imagens são ilustrações conceituais criadas para representar cada área. Não reproduzem projetos de clientes.",
+    "illustrative": "Ilustrativo",
+    "cta": "Ver portfólio completo",
+    "explore": "Explorar área",
+    "areas": {
+      "strategy": {
+        "title": "Experiência e estratégia de produto",
+        "summary": "Pesquisa, jornadas, fluxos, descoberta, análise de requisitos e arquitetura da informação."
+      },
+      "designSystems": {
+        "title": "Interfaces e Design Systems",
+        "summary": "Prototipação, definição visual, biblioteca de componentes, padrões de usabilidade e acessibilidade."
+      },
+      "frontend": {
+        "title": "Engenharia frontend",
+        "summary": "React, arquitetura de componentes, interfaces responsivas, otimização e integração com aplicações."
+      },
+      "enterprise": {
+        "title": "Produtos institucionais e corporativos",
+        "summary": "Experiências digitais com maior complexidade funcional, múltiplos perfis, fluxos administrativos e necessidade de padronização."
+      }
+    }
+  },
+  "illustrations": {
+    "journey": {
+      "stages": ["Descobrir", "Definir", "Desenhar", "Validar"],
+      "journeyLabel": "Jornada",
+      "iaLabel": "Arquitetura da informação",
+      "nodes": ["Início", "Serviços", "Solicitações", "Ajuda"]
+    },
+    "ds": {
+      "primary": "Primário",
+      "secondary": "Secundário",
+      "disabled": "Desativado",
+      "inputLabel": "E-mail",
+      "inputPlaceholder": "nome@dominio.com",
+      "switchLabel": "Notificações",
+      "colors": "Cores",
+      "type": "Tipografia",
+      "states": "Estados"
+    },
+    "code": {
+      "tree": "Árvore de componentes",
+      "preview": "Pré-visualização"
+    },
+    "enterprise": {
+      "title": "Painel de solicitações",
+      "roles": ["Gestão", "Análise", "Atendimento"],
+      "statuses": ["Em análise", "Aprovada", "Pendente", "Aprovada"],
+      "columns": ["Solicitação", "Responsável", "Situação"]
+    }
+  },
+  "portfolioPage": {
+    "eyebrow": "Portfólio de atuação",
+    "title": "Como atuo em cada etapa de um produto digital.",
+    "intro": "Quatro áreas que descrevem os problemas com que trabalho, as práticas que aplico e o que costumo entregar. O conteúdo é organizado por competências, não por cases.",
+    "disclaimer": "As demonstrações visuais desta página são conceituais e foram criadas para ilustrar métodos e entregáveis. Informações de projetos institucionais e de clientes não são divulgadas.",
+    "indexLabel": "Áreas de atuação",
+    "labels": {
+      "context": "Contexto",
+      "challenges": "Desafios comuns",
+      "competencies": "Competências envolvidas",
+      "methods": "Métodos e ferramentas",
+      "deliverables": "Entregáveis típicos",
+      "ux": "Considerações de UX",
+      "engineering": "Considerações de engenharia",
+      "demo": "Demonstração conceitual"
+    },
+    "backHome": "Voltar à página inicial",
+    "closingTitle": "Quer aprofundar alguma dessas áreas?",
+    "closingText": "Posso detalhar abordagens, processos e decisões em uma conversa.",
+    "closingCta": "Entrar em contato",
+    "areas": {
+      "strategy": {
+        "context": "Produtos digitais começam com perguntas: quem usa, o que precisa resolver e o que o negócio espera alcançar. Nesta etapa, o trabalho é reduzir incertezas antes de desenhar telas.",
+        "challenges": [
+          "Requisitos ambíguos ou dispersos entre áreas",
+          "Pouco acesso a pessoas usuárias",
+          "Fluxos herdados que cresceram sem planejamento",
+          "Conteúdo extenso sem hierarquia clara"
+        ],
+        "methods": [
+          "Entrevistas com usuários e stakeholders",
+          "Mapeamento de jornadas",
+          "Card sorting e árvores de navegação",
+          "Análise heurística",
+          "User flows e fluxogramas",
+          "Prototipação de baixa e média fidelidade"
+        ],
+        "deliverables": [
+          "Mapa de jornada",
+          "Arquitetura da informação",
+          "Fluxos de usuário",
+          "Wireframes",
+          "Hipóteses e critérios de validação"
+        ],
+        "ux": "Entender o problema antes de propor soluções e registrar as decisões, para que o time saiba por que cada fluxo existe.",
+        "engineering": "Avaliar cedo a viabilidade técnica dos fluxos, considerando integrações, regras de negócio e restrições de dados ainda no discovery."
+      },
+      "designSystems": {
+        "context": "Interfaces que crescem sem padrões acumulam inconsistências. Um Design System organiza decisões visuais e de interação para que o produto evolua com coerência.",
+        "challenges": [
+          "Componentes duplicados com variações não intencionais",
+          "Distância entre o que é desenhado e o que é implementado",
+          "Estados e casos de borda sem documentação",
+          "Acessibilidade tratada apenas no fim do processo"
+        ],
+        "methods": [
+          "Inventário de interface",
+          "Definição de tokens semânticos",
+          "Especificação de componentes e estados",
+          "Prototipação de alta fidelidade",
+          "Revisão de contraste e navegação por teclado (WCAG)",
+          "Documentação de uso"
+        ],
+        "deliverables": [
+          "Biblioteca de componentes",
+          "Tokens de cor, tipografia e espaçamento",
+          "Diretrizes de uso",
+          "Protótipos navegáveis",
+          "Especificações para desenvolvimento"
+        ],
+        "ux": "Padrões previsíveis reduzem o esforço cognitivo: a pessoa aprende a interface uma vez e reaproveita esse conhecimento.",
+        "engineering": "Tokens e componentes precisam de equivalência no código. Uma nomenclatura compartilhada entre design e frontend reduz retrabalho."
+      },
+      "frontend": {
+        "context": "A qualidade de uma interface também depende de como ela é construída. Na implementação, decisões de design se tornam estrutura, comportamento e desempenho.",
+        "challenges": [
+          "Perda de fidelidade entre protótipo e produção",
+          "Componentes acoplados e difíceis de manter",
+          "Layouts que quebram em tamanhos de tela intermediários",
+          "Carregamento lento e interações pouco responsivas"
+        ],
+        "methods": [
+          "Componentização orientada a responsabilidades",
+          "HTML semântico",
+          "CSS mobile-first",
+          "Integração com APIs REST",
+          "Revisão de acessibilidade e desempenho",
+          "Versionamento com Git"
+        ],
+        "deliverables": [
+          "Componentes reutilizáveis",
+          "Interfaces responsivas",
+          "Integrações com serviços",
+          "Páginas e aplicações web"
+        ],
+        "ux": "Responsividade, estados de carregamento e feedback imediato fazem parte da experiência, não são detalhes de acabamento.",
+        "engineering": "Código legível e componentes pequenos facilitam manutenção, testes e evolução do produto."
+      },
+      "enterprise": {
+        "context": "Sistemas institucionais e corporativos costumam reunir regras complexas, diferentes perfis de acesso e fluxos administrativos extensos. Uma interface clara reduz erros e torna o trabalho mais previsível.",
+        "challenges": [
+          "Múltiplos perfis com permissões diferentes",
+          "Formulários longos e regras de validação complexas",
+          "Necessidade de padronização entre sistemas",
+          "Exigências de acessibilidade e transparência"
+        ],
+        "methods": [
+          "Mapeamento de perfis e permissões",
+          "Fluxos administrativos e de aprovação",
+          "Padrões para formulários e tabelas",
+          "Hierarquia de informação em painéis",
+          "Validação com áreas de negócio"
+        ],
+        "deliverables": [
+          "Painéis e telas de gestão",
+          "Padrões de formulário e tabela",
+          "Fluxos de aprovação",
+          "Diretrizes de interface"
+        ],
+        "ux": "Em ambientes complexos, a interface deve mostrar o estado de cada processo e deixar clara a próxima ação.",
+        "engineering": "Componentes padronizados e regras centralizadas ajudam a manter a consistência entre módulos e equipes."
+      }
+    }
+  },
+  "journey": {
+    "eyebrow": "Trajetória",
+    "title": "Experiência construída entre design, produto e tecnologia.",
+    "intro": "Comecei pelo desenvolvimento de sistemas e interfaces. Com o tempo, minha atuação se aproximou das decisões de produto, sem deixar a engenharia de lado.",
+    "progressionLabel": "Evolução da atuação",
+    "progression": {
+      "systems": "Sistemas e interfaces",
+      "frontend": "Frontend",
+      "hybrid": "UX/UI + Frontend",
+      "ui": "UI Design",
+      "product": "UX/UI e Produto"
+    },
+    "contextsLabel": "Contextos de atuação",
+    "contexts": {
+      "public": {
+        "title": "Setor público e institucional",
+        "text": "Serviços e produtos digitais de organizações públicas, incluindo o portal institucional do TCU, atendido por meio da Capgemini."
+      },
+      "private": {
+        "title": "Iniciativa privada",
+        "text": "Empresas de tecnologia, consultoria e desenvolvimento de produtos e sistemas."
+      }
+    },
+    "contextNote": "As empresas listadas são as empregadoras. O contexto indica o tipo de organização atendida.",
+    "present": "atual",
+    "current": "Atual",
+    "items": {
+      "g4fSenior": {
+        "role": "Senior UX/UI Designer",
+        "text": "Condução de soluções de UX/UI do entendimento do problema à entrega, com participação em decisões de produto, padronização de interfaces e alinhamento com o desenvolvimento."
+      },
+      "g4fUi": {
+        "role": "UI Designer",
+        "text": "Design de interfaces, prototipação e padronização visual de produtos digitais, em colaboração com equipes de desenvolvimento."
+      },
+      "capgemini": {
+        "role": "Consultor de Soluções Digitais III · UX/UI + Frontend",
+        "text": "Atuação em UX/UI e frontend no portal institucional do TCU, com participação em iniciativas relacionadas a Design Systems."
+      },
+      "ibti": {
+        "role": "Desenvolvedor Frontend Jr I",
+        "text": "Desenvolvimento frontend em softwares criados para a Intelbras."
+      },
+      "aparece": {
+        "role": "Desenvolvimento de sistemas e design de interfaces",
+        "text": "Primeiras experiências profissionais em desenvolvimento de sistemas e design de interfaces."
+      }
+    }
+  },
+  "skills": {
+    "eyebrow": "Competências",
+    "title": "Repertório técnico para criar e evoluir produtos.",
+    "intro": "Organizado pelo peso de cada grupo no meu trabalho atual, do entendimento do problema à implementação.",
+    "groups": {
+      "product": { "title": "Produto e UX", "level": "Núcleo" },
+      "interface": { "title": "Interface e Design Systems", "level": "Núcleo" },
+      "frontend": { "title": "Frontend", "level": "Engenharia" },
+      "ai": {
+        "title": "IA no processo de produto e desenvolvimento",
+        "level": "Aplicada",
+        "text": "Uso ferramentas de IA generativa em pesquisa, prototipação e desenvolvimento, e projeto experiências com IA que deixam claro o que o sistema faz e mantêm o controle com a pessoa usuária."
+      },
+      "complementary": { "title": "Tecnologias complementares", "level": "Complementar" }
+    }
+  },
+  "education": {
+    "eyebrow": "Formação",
+    "title": "Uma base de engenharia e gestão.",
+    "text": "A formação em engenharia de software e gestão de projetos sustenta uma atuação que considera processo, qualidade técnica e colaboração entre áreas.",
+    "items": {
+      "softwareEngineering": { "type": "Bacharelado", "course": "Engenharia de Software" },
+      "mba": { "type": "MBA", "course": "Gestão de Projetos de TI" },
+      "ads": { "type": "Tecnólogo", "course": "Análise e Desenvolvimento de Sistemas" },
+      "mobile": { "type": "Especialização", "course": "Projetos de Aplicativos Móveis Multiplataforma" }
+    }
+  },
+  "contact": {
+    "eyebrow": "Contato",
+    "title": "Boas experiências começam com boas conversas.",
+    "text": "Design de produto, experiência do usuário ou desenvolvimento frontend: se existe um desafio que combina essas disciplinas, podemos conversar.",
+    "cta": "Entrar em contato",
+    "mailSubject": "Contato pelo site",
+    "emailLabel": "E-mail",
+    "linkedinLabel": "LinkedIn",
+    "linkedinCta": "Conectar no LinkedIn",
+    "whatsappCta": "Conversar no WhatsApp",
+    "whatsappShort": "WhatsApp",
+    "whatsappMessage": "Olá, Adiel! Vi seu site e gostaria de conversar.",
+    "elsewhere": "Outros canais",
+    "copy": "Copiar e-mail",
+    "copied": "E-mail copiado para a área de transferência.",
+    "copyError": "Não foi possível copiar. Use o endereço exibido."
+  },
+  "footer": {
+    "tagline": "Senior Product Designer, UX/UI Designer e Frontend Engineer.",
+    "index": "Índice",
+    "rights": "© {{year}} Adiel Soares. Todos os direitos reservados."
+  },
+  "notFound": {
+    "eyebrow": "Erro 404",
+    "title": "Página não encontrada.",
+    "text": "O endereço acessado não existe ou foi alterado.",
+    "cta": "Voltar ao início"
+  }
+}

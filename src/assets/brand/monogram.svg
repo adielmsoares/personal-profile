@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 55 40" role="img" aria-labelledby="t">
+  <title id="t">Adiel Soares — monograma AS</title>
+  <defs>
+    <linearGradient id="g" x1="0" y1="0" x2="1" y2="1"><stop offset="0" stop-color="#1850C8"/><stop offset="1" stop-color="#0B7274"/></linearGradient>
+    <mask id="m" maskUnits="userSpaceOnUse" x="-4" y="-4" width="63" height="48"><rect x="-4" y="-4" width="63" height="48" fill="#fff"/><rect x="-4" y="19.4" width="63" height="1.2" fill="#000"/></mask>
+    <g id="a" fill="none" stroke-width="6" stroke-linecap="round" stroke-linejoin="round">
+      <path d="M4 37 14.5 4.5h5l5.6 17.5"/>
+      <path transform="matrix(1 0 .3 1 24 0)" d="M18 3H7a4 4 0 0 0-4 4v9a4 4 0 0 0 4 4h4a4 4 0 0 1 4 4v9a4 4 0 0 1-4 4H4"/>
+      <path d="M25.1 22 30 37"/>
+    </g>
+  </defs>
+  <g mask="url(#m)">
+    <use href="#a" stroke="#0B7274" opacity=".55" transform="translate(-.9 0)"/>
+    <use href="#a" stroke="#6A3FD4" opacity=".55" transform="translate(.9 0)"/>
+    <use href="#a" stroke="#101C2E"/>
+    <path d="M25.1 22 30 37" fill="none" stroke="url(#g)" stroke-width="6" stroke-linecap="round"/>
+  </g>
+  <path d="M45.2 3H49.6" stroke="#101C2E" stroke-width="1.5" stroke-linecap="round"/>
+  <circle cx="51.6" cy="3" r="1.8" fill="none" stroke="#0B7274" stroke-width="1.5"/>
+</svg>

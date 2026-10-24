@@ -1,0 +1,14 @@
+node_modules
+dist
+dist-ssr
+*.log
+.DS_Store
+.vscode/*
+!.vscode/extensions.json
+
+# Gerados por scripts/optimize-images.mjs
+public/images/portrait/
+public/og/
+public/apple-touch-icon.png
+
+.backup/

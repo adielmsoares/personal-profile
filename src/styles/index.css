@@ -1,0 +1,736 @@
+@import "tailwindcss";
+
+@custom-variant hc (&:where([data-contrast="high"], [data-contrast="high"] *));
+@custom-variant light (&:where([data-theme="light"], [data-theme="light"] *));
+
+/* ---------------------------------------------------------------------------
+ * Primitives — Tech Editorial
+ * Navy predominante, azul digital para ação, cyan para destaques pontuais.
+ * Iconografia: 16 (size-4) · 20 (size-5) · 24 (size-6) · 32 (size-8).
+ * ------------------------------------------------------------------------- */
+@theme {
+  --color-navy-975: #060d1b;
+  --color-navy-950: #0d192b;
+  --color-navy-900: #15243a;
+  --color-navy-700: #304760;
+  --color-blue-500: #477bff;
+  --color-blue-600: #3366f0;
+  --color-blue-700: #1850c8;
+  --color-cyan-400: #3adceb;
+  --color-cyan-800: #0b7274;
+  --color-ice-50: #f6f9fc;
+  --color-ice-100: #edf3fa;
+  --color-ice-200: #cedae8;
+  --color-slate-200: #b9cbdb;
+  --color-slate-600: #445a73;
+  --color-violet-400: #9d7bff;
+
+  --font-display: "Bricolage Grotesque Variable", "Bricolage Grotesque", ui-sans-serif, system-ui, sans-serif;
+  --font-sans: "DM Sans Variable", "DM Sans", ui-sans-serif, system-ui, sans-serif;
+  --font-mono: "JetBrains Mono Variable", "JetBrains Mono", ui-monospace, "SFMono-Regular", Menlo, monospace;
+
+  --text-display: clamp(2.625rem, 4.4vw + 1rem, 5.25rem);
+  --text-display--line-height: 0.98;
+  --text-display--letter-spacing: -0.035em;
+  --text-h2: clamp(2rem, 2.6vw + 1rem, 3.5rem);
+  --text-h2--line-height: 1.04;
+  --text-h2--letter-spacing: -0.028em;
+  --text-h3: clamp(1.25rem, 0.8vw + 1rem, 1.625rem);
+  --text-h3--line-height: 1.25;
+  --text-h3--letter-spacing: -0.015em;
+  --text-lead: clamp(1.0625rem, 0.35vw + 0.98rem, 1.25rem);
+  --text-lead--line-height: 1.6;
+  --text-micro: 0.75rem;
+  --text-micro--line-height: 1.4;
+
+  --radius-card: 1.5rem;
+  --radius-control: 0.875rem;
+
+  --breakpoint-xs: 22.5rem;
+
+  --ease-brand: cubic-bezier(0.22, 1, 0.36, 1);
+  --ease-standard: cubic-bezier(0.2, 0, 0, 1);
+
+  --animate-reveal: reveal 640ms var(--ease-brand) both;
+  --animate-fade: fade 240ms var(--ease-standard) both;
+  --animate-pulse-dot: pulse-dot 2.4s var(--ease-standard) infinite;
+  --animate-drift: drift 22s ease-in-out infinite alternate;
+  --animate-drift-slow: drift 30s ease-in-out -8s infinite alternate-reverse;
+  --animate-spin-slow: spin-angle 6s linear infinite;
+  --animate-grid-flow: grid-flow 9s linear infinite;
+  --animate-float-in: float-in 700ms var(--ease-brand) 1.2s both;
+  --animate-glitch: glitch 420ms steps(2, end) 1;
+
+  @keyframes glitch {
+    0% {
+      transform: translate(0, 0);
+    }
+
+    20% {
+      transform: translate(-1.6px, 0.6px);
+    }
+
+    40% {
+      transform: translate(1.4px, -0.8px);
+    }
+
+    60% {
+      transform: translate(-0.8px, 0);
+    }
+
+    80% {
+      transform: translate(1px, 0.4px);
+    }
+
+    100% {
+      transform: translate(0, 0);
+    }
+  }
+
+  @keyframes spin-angle {
+    to {
+      --angle: 360deg;
+    }
+  }
+
+  @keyframes grid-flow {
+    from {
+      transform: translateY(0);
+    }
+
+    to {
+      transform: translateY(48px);
+    }
+  }
+
+  @keyframes float-in {
+    from {
+      opacity: 0;
+      transform: translateY(24px) scale(0.9);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes reveal {
+    from {
+      opacity: 0;
+      transform: translateY(14px);
+    }
+
+    to {
+      opacity: 1;
+      transform: none;
+    }
+  }
+
+  @keyframes fade {
+    from {
+      opacity: 0;
+    }
+
+    to {
+      opacity: 1;
+    }
+  }
+
+  @keyframes pulse-dot {
+
+    0%,
+    100% {
+      opacity: 1;
+    }
+
+    50% {
+      opacity: 0.35;
+    }
+  }
+
+  @keyframes drift {
+    from {
+      transform: translate3d(0, 0, 0) scale(1);
+    }
+
+    to {
+      transform: translate3d(6%, -4%, 0) scale(1.08);
+    }
+  }
+}
+
+/* Semantic tokens as utilities (bg-page, text-fg, bg-signal, border-line…) */
+@theme inline {
+  --color-page: var(--bg-page);
+  --color-surface: var(--bg-surface);
+  --color-elevated: var(--bg-elevated);
+  --color-inset: var(--bg-inset);
+  --color-fg: var(--text-primary);
+  --color-muted: var(--text-secondary);
+  --color-subtle: var(--text-tertiary);
+  --color-accent: var(--accent);
+  --color-accent-2: var(--accent-2);
+  --color-accent-3: var(--accent-3);
+  --color-signal: var(--signal);
+  --color-signal-strong: var(--signal-strong);
+  --color-on-signal: var(--on-signal);
+  --color-line: var(--border-color);
+  --color-line-subtle: var(--border-subtle);
+  --color-focus: var(--focus-color);
+  --shadow-card: var(--shadow-card-value);
+  --shadow-lift: var(--shadow-lift-value);
+}
+
+/* ---------------------------------------------------------------------------
+ * Themes
+ * --accent: azul seguro para texto/ícones · --accent-2: cyan de destaque
+ * --signal: preenchimento de ações (texto --on-signal ≥ 4.5:1)
+ * ------------------------------------------------------------------------- */
+:root {
+  color-scheme: dark;
+
+  --bg-page: #060d1b;
+  --bg-surface: #0d192b;
+  --bg-elevated: #15243a;
+  --bg-inset: #091425;
+  --text-primary: #f7faff;
+  --text-secondary: #b9cbdb;
+  --text-tertiary: #8da2b8;
+  --accent: #7ea2ff;
+  --accent-2: #3adceb;
+  --signal: #3366f0;
+  --signal-strong: #2a58d6;
+  --on-signal: #ffffff;
+  --border-color: #5b7592;
+  --border-subtle: #304760;
+  --focus-color: #3adceb;
+
+  --grid-line: rgb(185 203 219 / 0.045);
+  --brand-1: #477bff;
+  --brand-2: #3adceb;
+  --glow-a: rgb(71 123 255 / 0.2);
+  --glow-b: rgb(58 220 235 / 0.11);
+  --glow-c: rgb(157 123 255 / 0.1);
+  --accent-3: #9d7bff;
+  --grad-neon: linear-gradient(110deg, #477bff, #3adceb 50%, #9d7bff);
+  --scanline: rgb(185 203 219 / 0.035);
+  --floor-line: rgb(58 220 235 / 0.22);
+  --grad-brand: linear-gradient(135deg, #477bff 0%, #3adceb 100%);
+  --edge-highlight: linear-gradient(90deg, transparent, rgb(58 220 235 / 0.7), transparent);
+  --shadow-card-value: 0 1px 0 rgb(255 255 255 / 0.03) inset, 0 12px 32px -20px rgb(0 0 0 / 0.6);
+  --shadow-lift-value: 0 1px 0 rgb(255 255 255 / 0.05) inset, 0 24px 48px -24px rgb(0 0 0 / 0.7);
+  --header-bg: rgb(6 13 27 / 0.95);
+
+  --dur-micro: 160ms;
+  --dur-base: 280ms;
+  --dur-reveal: 640ms;
+
+  --z-raised: 10;
+  --z-header: 50;
+  --z-fab: 55;
+  --z-overlay: 60;
+  --z-skip: 100;
+
+  --header-h: 4.25rem;
+}
+
+:root[data-theme="light"] {
+  color-scheme: light;
+
+  --bg-page: #f6f9fc;
+  --bg-surface: #ffffff;
+  --bg-elevated: #edf3fa;
+  --bg-inset: #f1f6fb;
+  --text-primary: #101c2e;
+  --text-secondary: #445a73;
+  --text-tertiary: #5a6e86;
+  --accent: #1850c8;
+  --accent-2: #0b7274;
+  --signal: #1850c8;
+  --signal-strong: #123fa3;
+  --on-signal: #ffffff;
+  --border-color: #7d8fa6;
+  --border-subtle: #cedae8;
+  --focus-color: #1850c8;
+
+  --grid-line: rgb(16 28 46 / 0.04);
+  --brand-1: #1850c8;
+  --brand-2: #0b7274;
+  --glow-a: rgb(24 80 200 / 0.09);
+  --glow-b: rgb(11 114 116 / 0.07);
+  --glow-c: rgb(106 63 212 / 0.06);
+  --accent-3: #6a3fd4;
+  --grad-neon: linear-gradient(110deg, #1850c8, #0b7274 50%, #6a3fd4);
+  --scanline: rgb(16 28 46 / 0.025);
+  --floor-line: rgb(24 80 200 / 0.14);
+  --grad-brand: linear-gradient(135deg, #1850c8 0%, #0b7274 100%);
+  --edge-highlight: linear-gradient(90deg, transparent, rgb(24 80 200 / 0.55), transparent);
+  --shadow-card-value: 0 1px 2px rgb(16 28 46 / 0.04);
+  --shadow-lift-value: 0 18px 40px -24px rgb(16 28 46 / 0.22);
+  --header-bg: rgb(246 249 252 / 0.96);
+}
+
+:root[data-contrast="high"] {
+  --bg-page: #000000;
+  --bg-surface: #000000;
+  --bg-elevated: #0e0e0e;
+  --bg-inset: #000000;
+  --text-primary: #ffffff;
+  --text-secondary: #f2f2f2;
+  --text-tertiary: #e0e0e0;
+  --accent: #9db8ff;
+  --accent-2: #6cf0fa;
+  --signal: #9db8ff;
+  --signal-strong: #c3d4ff;
+  --on-signal: #000000;
+  --border-color: #ffffff;
+  --border-subtle: #a3a3a3;
+  --focus-color: #ffe066;
+
+  --grid-line: transparent;
+  --brand-1: #9db8ff;
+  --brand-2: #6cf0fa;
+  --glow-a: transparent;
+  --glow-b: transparent;
+  --glow-c: transparent;
+  --accent-3: #c2b0ff;
+  --grad-neon: linear-gradient(110deg, #9db8ff, #6cf0fa);
+  --scanline: transparent;
+  --floor-line: transparent;
+  --grad-brand: linear-gradient(135deg, #9db8ff, #6cf0fa);
+  --edge-highlight: linear-gradient(90deg, #ffffff, #ffffff);
+  --shadow-card-value: none;
+  --shadow-lift-value: none;
+  --header-bg: #000000;
+}
+
+:root[data-theme="light"][data-contrast="high"] {
+  --bg-page: #ffffff;
+  --bg-surface: #ffffff;
+  --bg-elevated: #f0f0f0;
+  --bg-inset: #ffffff;
+  --text-primary: #000000;
+  --text-secondary: #111111;
+  --text-tertiary: #1f1f1f;
+  --accent: #0a3a9e;
+  --accent-2: #064e50;
+  --signal: #0a3a9e;
+  --signal-strong: #072a73;
+  --on-signal: #ffffff;
+  --border-color: #000000;
+  --border-subtle: #575757;
+  --focus-color: #c2005a;
+
+  --grad-brand: linear-gradient(135deg, #0a3a9e, #064e50);
+  --grad-neon: linear-gradient(110deg, #0a3a9e, #064e50);
+  --accent-3: #4b23a8;
+  --brand-1: #0a3a9e;
+  --brand-2: #064e50;
+  --edge-highlight: linear-gradient(90deg, #000000, #000000);
+  --header-bg: #ffffff;
+}
+
+/* ---------------------------------------------------------------------------
+ * Base
+ * ------------------------------------------------------------------------- */
+@layer base {
+  html {
+    scroll-behavior: smooth;
+    scroll-padding-top: calc(var(--header-h) + 1rem);
+    -webkit-text-size-adjust: 100%;
+    text-size-adjust: 100%;
+  }
+
+  body {
+    background-color: var(--bg-page);
+    color: var(--text-primary);
+    font-family: var(--font-sans);
+    font-size: 1rem;
+    line-height: 1.65;
+    font-feature-settings: "cv11", "ss03";
+    -webkit-font-smoothing: antialiased;
+    -moz-osx-font-smoothing: grayscale;
+    overflow-x: clip;
+  }
+
+  @media (min-width: 64rem) {
+    body {
+      font-size: 1.0625rem;
+    }
+  }
+
+  h1,
+  h2,
+  h3,
+  h4 {
+    font-family: var(--font-display);
+    font-weight: 600;
+    text-wrap: balance;
+  }
+
+  p {
+    text-wrap: pretty;
+  }
+
+  ::selection {
+    background-color: var(--signal);
+    color: var(--on-signal);
+  }
+
+  :focus-visible {
+    outline: 2px solid var(--focus-color);
+    outline-offset: 3px;
+  }
+
+  [data-contrast="high"] :focus-visible {
+    outline-width: 3px;
+    outline-offset: 4px;
+  }
+
+  [tabindex="-1"]:focus {
+    outline: none;
+  }
+
+  svg.lucide {
+    stroke-width: 1.75;
+  }
+
+  [data-contrast="high"] svg.lucide {
+    stroke-width: 2.25;
+  }
+}
+
+/* ---------------------------------------------------------------------------
+ * Utilities
+ * ------------------------------------------------------------------------- */
+@utility bg-grid {
+  background-image:
+    linear-gradient(to right, var(--grid-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--grid-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+}
+
+@utility mask-fade {
+  mask-image: radial-gradient(ellipse 75% 65% at 50% 35%, #000 25%, transparent 78%);
+}
+
+@utility eyebrow {
+  font-family: var(--font-mono);
+  font-size: 0.75rem;
+  line-height: 1.4;
+  font-weight: 500;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+@utility text-gradient {
+  background-image: var(--grad-brand);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Iluminação ambiente: manchas radiais com deriva lenta (somente transform). */
+@utility glow-a {
+  background: radial-gradient(closest-side, var(--glow-a), transparent);
+}
+
+@utility glow-b {
+  background: radial-gradient(closest-side, var(--glow-b), transparent);
+}
+
+@utility glow-c {
+  background: radial-gradient(closest-side, var(--glow-c), transparent);
+}
+
+@utility text-neon {
+  background-image: var(--grad-neon);
+  background-clip: text;
+  -webkit-background-clip: text;
+  color: transparent;
+}
+
+/* Textura de varredura (CRT) muito sutil. */
+@utility scanlines {
+  background-image: repeating-linear-gradient(to bottom, var(--scanline) 0 1px, transparent 1px 4px);
+}
+
+/* Colchetes de HUD nos cantos; acendem no hover/foco. */
+@utility hud {
+  position: relative;
+
+  &::after {
+    --t: 14px;
+    --w: 1.5px;
+    --c: color-mix(in srgb, var(--accent-2) 55%, transparent);
+    content: "";
+    position: absolute;
+    inset: -8px;
+    border-radius: calc(var(--radius-card) + 8px);
+    pointer-events: none;
+    background:
+      linear-gradient(var(--c) 0 0) left top / var(--t) var(--w),
+      linear-gradient(var(--c) 0 0) left top / var(--w) var(--t),
+      linear-gradient(var(--c) 0 0) right top / var(--t) var(--w),
+      linear-gradient(var(--c) 0 0) right top / var(--w) var(--t),
+      linear-gradient(var(--c) 0 0) left bottom / var(--t) var(--w),
+      linear-gradient(var(--c) 0 0) left bottom / var(--w) var(--t),
+      linear-gradient(var(--c) 0 0) right bottom / var(--t) var(--w),
+      linear-gradient(var(--c) 0 0) right bottom / var(--w) var(--t);
+    background-repeat: no-repeat;
+    transition:
+      inset var(--dur-base) var(--ease-brand),
+      opacity var(--dur-base) var(--ease-brand);
+  }
+
+  &:hover::after,
+  &:focus-within::after {
+    --c: var(--accent-2);
+    inset: -4px;
+  }
+}
+
+/* Contorno neon que percorre a borda (ângulo animado via @property). O host precisa estar posicionado. */
+@property --angle {
+  syntax: "<angle>";
+  inherits: false;
+  initial-value: 0deg;
+}
+
+@utility neon-ring {
+  isolation: isolate;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset: -2px;
+    z-index: -1;
+    border-radius: inherit;
+    padding: 2px;
+    background: conic-gradient(from var(--angle), transparent 0 55%, var(--brand-2) 72%, var(--accent-3) 86%, transparent 100%);
+    -webkit-mask:
+      linear-gradient(#000 0 0) content-box,
+      linear-gradient(#000 0 0);
+    -webkit-mask-composite: xor;
+    mask-composite: exclude;
+    animation: spin-angle 6s linear infinite;
+    pointer-events: none;
+  }
+}
+
+[data-contrast="high"] .neon-ring::before {
+  display: none;
+}
+
+/* Piso em perspectiva (synthwave contido): plano inclinado + grade em deslocamento. */
+.grid-floor {
+  perspective: 360px;
+  overflow: hidden;
+  mask-image: linear-gradient(to top, #000 0%, transparent 85%);
+}
+
+.grid-floor>.plane {
+  position: absolute;
+  inset: 0 -60% -40%;
+  transform-origin: 50% 0%;
+  transform: rotateX(68deg);
+}
+
+.grid-floor>.plane>span {
+  position: absolute;
+  inset: -48px 0 0;
+  background-image:
+    linear-gradient(to right, var(--floor-line) 1px, transparent 1px),
+    linear-gradient(to bottom, var(--floor-line) 1px, transparent 1px);
+  background-size: 48px 48px;
+  animation: grid-flow 9s linear infinite;
+}
+
+/* Borda superior luminosa que acende no hover/foco. */
+@utility edge-glow {
+  position: relative;
+
+  &::before {
+    content: "";
+    position: absolute;
+    inset-inline: 12%;
+    top: -1px;
+    height: 1px;
+    background: var(--edge-highlight);
+    opacity: 0;
+    transform: scaleX(0.4);
+    transition:
+      opacity var(--dur-base) var(--ease-brand),
+      transform 600ms var(--ease-brand);
+    pointer-events: none;
+  }
+
+  &:hover::before,
+  &:focus-within::before {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+/* Paralaxe mínima: --px/--py (−1…1) definidos por JS apenas com ponteiro fino. */
+@utility parallax {
+  transform: translate3d(calc(var(--px, 0) * var(--depth, 0) * 1px), calc(var(--py, 0) * var(--depth, 0) * 1px), 0);
+  transition: transform 700ms var(--ease-brand);
+}
+
+/* Headline revelada linha a linha. */
+.lines>.line {
+  display: block;
+  overflow: clip;
+  padding-bottom: 0.08em;
+  margin-bottom: -0.08em;
+}
+
+.lines>.line>span {
+  display: inline-block;
+  animation: line-rise 900ms var(--ease-brand) both;
+  animation-delay: calc(var(--i, 0) * 110ms + 120ms);
+}
+
+@keyframes line-rise {
+  from {
+    transform: translateY(105%);
+  }
+
+  to {
+    transform: none;
+  }
+}
+
+/* Desenho de traços (requer pathLength="1"). */
+.draw {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  animation: draw 1.6s var(--ease-brand) forwards;
+  animation-delay: var(--d, 0ms);
+}
+
+.draw-hover {
+  stroke-dasharray: 1;
+  stroke-dashoffset: 1;
+  transition: stroke-dashoffset 900ms var(--ease-brand);
+  transition-delay: var(--d, 0ms);
+}
+
+.group:hover .draw-hover,
+.group:focus-within .draw-hover,
+[data-revealed] .draw-hover {
+  stroke-dashoffset: 0;
+}
+
+@keyframes draw {
+  to {
+    stroke-dashoffset: 0;
+  }
+}
+
+/* Linha que se conecta quando o bloco é revelado. */
+.js .draw-line {
+  transform: scaleX(0);
+  transition: transform 1400ms var(--ease-brand) 300ms;
+}
+
+.js [data-revealed] .draw-line {
+  transform: scaleX(1);
+}
+
+/* Barra de leitura e progresso da timeline (scroll-driven; sem suporte ficam estáticas). */
+.scroll-progress {
+  transform-origin: 0 50%;
+  transform: scaleX(0);
+}
+
+.timeline-progress {
+  transform-origin: 50% 0;
+}
+
+@supports (animation-timeline: scroll()) {
+  .scroll-progress {
+    animation: grow-x linear both;
+    animation-timeline: scroll(root block);
+  }
+
+  .timeline-progress {
+    animation: grow-y linear both;
+    animation-timeline: view();
+    animation-range: entry 10% cover 60%;
+  }
+}
+
+@keyframes grow-x {
+  to {
+    transform: scaleX(1);
+  }
+}
+
+@keyframes grow-y {
+  from {
+    transform: scaleY(0);
+  }
+
+  to {
+    transform: scaleY(1);
+  }
+}
+
+/* Revelação ao rolar: conteúdo visível sem JS ou com movimento reduzido. */
+.js [data-reveal] {
+  opacity: 0;
+  transform: translateY(14px);
+  transition:
+    opacity var(--dur-reveal) var(--ease-brand),
+    transform var(--dur-reveal) var(--ease-brand);
+  transition-delay: var(--reveal-delay, 0ms);
+}
+
+.js [data-reveal][data-revealed] {
+  opacity: 1;
+  transform: none;
+}
+
+::view-transition-old(root),
+::view-transition-new(root) {
+  animation-duration: 360ms;
+  animation-timing-function: var(--ease-standard);
+}
+
+@media (prefers-reduced-motion: reduce) {
+  html {
+    scroll-behavior: auto;
+  }
+
+  .js [data-reveal] {
+    opacity: 1;
+    transform: none;
+  }
+
+  .draw,
+  .draw-hover {
+    stroke-dashoffset: 0;
+  }
+
+  .scroll-progress {
+    display: none;
+  }
+
+  .timeline-progress {
+    animation: none;
+  }
+
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-delay: 0ms !important;
+    animation-iteration-count: 1 !important;
+    scroll-behavior: auto !important;
+    transition-duration: 0.01ms !important;
+    transition-delay: 0ms !important;
+  }
+}

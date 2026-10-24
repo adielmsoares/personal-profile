@@ -1,0 +1,44 @@
+<!doctype html>
+<html lang="pt-BR" dir="ltr">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <meta name="theme-color" content="#060D1B" />
+  <meta name="color-scheme" content="dark light" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/apple-touch-icon.png" />
+  <title>Adiel Soares | Product Designer, UX/UI & Frontend Engineer</title>
+  <script>
+    // Aplica tema, contraste e idioma salvos antes da primeira pintura (evita flash).
+    (function () {
+      var d = document.documentElement;
+      d.classList.add('js');
+      try {
+        var mq = function (q) { return window.matchMe        dow.matchMedia(q).matches; };
+                    ocalStorage.getItem('as-theme');
+          var th = pref === 'light' || pref === 'dark' ? pref : mq('(        lo        light)') ? 'light' : 'dark';
+               tribute('data-theme', th);
+          var         torage.getItem('as-contrast            if (c !== 'high' && c !== 'standard') c = mq('(prefers-contra          ? 'high' : 'standard';
+          d.setAttribute('data-contrast', c);
+          var m        me      Selector('met a[      eme-color"]');
+                  meta.setAttribute('content', th === 'light' ? '#F       '#060D1B'           l = locae.getItem('as-lang');
+          var p = location.pathname;
+          if ((l === 'en' || l === 'es') && !/^\/(en|es)(\/|$)/.test(p)) {
+            location.replace('/' + l + (p === '/' ? '' : p) + location.search + location.hash);
+          }
+        } catch (e) {}
+        setTimeout(function () {
+          if (!window.__asReady) d.classList.remove('js');
+        }, 4000);
+      })();
+  </script>
+  <!--app-head-->
+</head>
+
+<body>
+  <div id="root"><!--app-html--></div>
+  <script type="module" src="/src/app/entry-client.jsx"></script>
+</body>
+
+</html>
