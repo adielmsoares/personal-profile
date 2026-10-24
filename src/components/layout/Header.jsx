@@ -1,7 +1,7 @@
 import { useCallback, useEffect, useRef, useState } from 'react';
 import { Link, useLocation } from 'react-router';
 import { useTranslation } from 'react-i18next';
-import { ArrowRight, Menu } from 'lucide-react';
+import { ArrowRight, Menu, X } from 'lucide-react';
 import { NAV_ITEMS } from '../../data/navigation';
 import { useActiveSection } from '../../hooks/useActiveSection';
 import { useLang } from '../../hooks/useLang';
@@ -40,8 +40,20 @@ function useIndicator(listRef, key) {
 
   useEffect(() => {
     const update = () => {
+      const list = listRef.current;
       const el = listRef.current?.querySelector('[aria-current]');
-      setBox(el ? { x: el.offsetLeft + 10, w: el.offsetWidth - 20 } : null);
+      if (!list || !el) {
+        setBox(null);
+        return;
+      }
+      const listRect = list.getBoundingClientRect();
+      const itemRect = el.getBoundingClientRect();
+      setBox({
+        x: itemRect.left - listRect.left,
+        y: itemRect.top - listRect.top,
+        w: itemRect.width,
+        h: itemRect.height,
+      });
     };
     update();
     document.fonts?.ready.then(update);
@@ -84,8 +96,10 @@ export default function Header() {
   return (
     <header
       className={cn(
-        'sticky top-0 z-(--z-header) border-b transition-[background-color,border-color] duration-(--dur-base) ease-standard',
-        scrolled ? 'border-line-subtle bg-(--header-bg)' : 'border-transparent bg-transparent',
+        'sticky top-0 z-(--z-header) border-b transition-[background-color,border-color,backdrop-filter] duration-500 ease-standard',
+        scrolled || menuOpen
+          ? 'border-line-subtle bg-(--header-bg) backdrop-blur-xl backdrop-saturate-150'
+          : 'border-transparent bg-transparent',
       )}
     >
       <Container className="flex h-(--header-h) items-center justify-between gap-4">
@@ -94,23 +108,28 @@ export default function Header() {
         </Link>
 
         <nav aria-label={t('a11y.mainNav')} className="hidden lg:block">
-          <ul ref={listRef} className="relative flex items-center">
+          <ul ref={listRef} className="relative flex items-center gap-1 bg-surface/60 p-1 border border-line-subtle hc:border-line rounded-full">
             {links.map((link) => (
               <li key={link.id}>
                 <Link
                   to={link.href}
                   aria-current={link.current}
                   data-plain=""
-                  className="block rounded-full px-2.5 py-2 text-[0.8125rem] text-muted no-underline transition-colors duration-(--dur-micro) ease-standard hover:text-fg aria-[current]:text-fg"
+                  className="block z-10 relative px-3.5 py-2 rounded-full text-[0.8125rem] text-muted aria-[current]:text-fg hover:text-fg no-underline header-control"
                 >
                   {link.label}
                 </Link>
               </li>
             ))}
-            <li
+            <span
               aria-hidden="true"
-              className="pointer-events-none absolute bottom-1 left-0 h-px bg-(image:--grad-brand) transition-[transform,width,opacity] duration-(--dur-base) ease-brand"
-              style={{ width: indicator?.w ?? 0, transform: `translateX(${indicator?.x ?? 0}px)`, opacity: indicator ? 1 : 0 }}
+              className="pointer-events-none absolute left-0 top-0 rounded-full bg-fg/[0.07] ring-1 ring-fg/10 transition-[transform,width,height,opacity] duration-(--dur-base) ease-brand hc:bg-signal hc:ring-0"
+              style={{
+                width: indicator?.w ?? 0,
+                height: indicator?.h ?? 0,
+                transform: `translate(${indicator?.x ?? 0}px, ${indicator?.y ?? 0}px)`,
+                opacity: indicator ? 1 : 0,
+              }}
             />
           </ul>
         </nav>
@@ -122,20 +141,23 @@ export default function Header() {
           </div>
           <ContrastToggle />
           <div className="hidden xl:block">
-            <Button to={to('/', 'contact')} variant="text" size="sm" icon={ArrowRight}>
+            <Button to={to('/', 'contact')} size="sm" icon={ArrowRight} className="neon-ring">
               {t('nav.cta')}
             </Button>
           </div>
           <button
             ref={menuButtonRef}
             type="button"
-            onClick={() => setMenuOpen(true)}
+            onClick={() => setMenuOpen((value) => !value)}
             aria-expanded={menuOpen}
             aria-controls="mobile-menu"
-            className="lg:hidden inline-flex justify-center items-center border border-line-subtle hc:border-line hover:border-line rounded-full size-10 text-fg transition-colors"
+            aria-label={menuOpen ? t('a11y.closeMenu') : t('a11y.openMenu')}
+            className="lg:hidden inline-flex justify-center items-center border border-line-subtle hc:border-line rounded-full size-10 text-fg header-control"
           >
-            <Menu aria-hidden className="size-5" />
-            <span className="sr-only">{t('a11y.openMenu')}</span>
+            <span aria-hidden="true" className="relative size-5">
+              <Menu className={cn('absolute inset-0 size-5 transition-[transform,opacity] duration-(--dur-base) ease-brand', menuOpen ? 'rotate-90 scale-50 opacity-0' : 'rotate-0 scale-100 opacity-100')} />
+              <X className={cn('absolute inset-0 size-5 transition-[transform,opacity] duration-(--dur-base) ease-brand', menuOpen ? 'rotate-0 scale-100 opacity-100' : '-rotate-90 scale-50 opacity-0')} />
+            </span>
           </button>
         </div>
       </Container>

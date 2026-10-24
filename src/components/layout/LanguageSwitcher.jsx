@@ -42,7 +42,7 @@ export default function LanguageSwitcher({ className, size = 'sm' }) {
                 onFocus={() => loadLanguage(l.code)}
                 data-plain=""
                 className={cn(
-                  'flex items-center justify-center rounded-full font-mono font-medium tracking-[0.06em] no-underline transition-colors duration-(--dur-micro)',
+                  'flex justify-center items-center rounded-full font-mono font-medium no-underline tracking-[0.06em] header-control',
                   size === 'lg' ? 'min-h-11 min-w-14 px-3 text-sm' : 'h-9 min-w-9 px-2 text-[0.6875rem]',
                   active ? 'text-fg hc:text-on-signal' : 'text-subtle hover:text-fg',
                 )}

@@ -48,12 +48,12 @@ export function ThemeSelect({ withLabels = false, className }) {
             title={withLabels ? undefined : name}
             onClick={() => setPreference(value)}
             className={cn(
-              'relative z-10 inline-flex items-center justify-center gap-2 rounded-full transition-colors duration-(--dur-micro)',
+              'group inline-flex z-10 relative justify-center items-center gap-2 rounded-full header-control',
               withLabels ? 'min-h-11 px-3 text-sm font-medium' : 'size-9',
               active ? 'text-fg hc:text-on-signal' : 'text-subtle hover:text-fg',
             )}
           >
-            <Icon aria-hidden className={cn('size-4 transition-transform duration-(--dur-base) ease-brand', active && 'rotate-[-8deg] scale-110')} />
+            <Icon aria-hidden className={cn('size-4 transition-transform duration-(--dur-base) ease-brand group-hover:-rotate-12 group-hover:scale-110', active && 'rotate-[-8deg] scale-110')} />
             <span className={withLabels ? undefined : 'sr-only'}>{name}</span>
           </button>
         );
@@ -73,14 +73,13 @@ export function ContrastToggle({ withLabel = false, className }) {
       aria-pressed={high}
       title={high ? t('a11y.contrastHintOn') : t('a11y.contrastHintOff')}
       className={cn(
-        'group inline-flex justify-center items-center gap-2 border border-line-subtle hc:border-line rounded-full text-subtle',
-        'transition-colors duration-(--dur-micro) ease-standard hover:border-line hover:text-fg',
+        'group inline-flex justify-center items-center gap-2 border border-line-subtle hc:border-line rounded-full text-subtle header-control',
         'aria-pressed:border-signal aria-pressed:bg-signal aria-pressed:text-on-signal',
         withLabel ? 'min-h-12 px-4 text-sm font-medium' : 'size-10',
         className,
       )}
     >
-      <Contrast aria-hidden className="size-4 transition-transform duration-(--dur-base) ease-brand group-aria-pressed:rotate-180" />
+      <Contrast aria-hidden className="size-4 transition-transform duration-(--dur-base) ease-brand group-hover:rotate-12 group-hover:scale-110 group-aria-pressed:rotate-180" />
       <span className={withLabel ? undefined : 'sr-only'}>{t('a11y.contrast')}</span>
     </button>
   );

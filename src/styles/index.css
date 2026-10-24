@@ -573,6 +573,62 @@
   }
 }
 
+/* Pulso curto de interface para controles do header, acionado por hover/foco. */
+@utility header-control {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+  transition:
+    color var(--dur-micro) var(--ease-standard),
+    border-color var(--dur-micro) var(--ease-standard),
+    background-color var(--dur-micro) var(--ease-standard),
+    transform var(--dur-micro) var(--ease-standard),
+    box-shadow var(--dur-base) var(--ease-brand);
+
+  &::after {
+    content: "";
+    position: absolute;
+    inset-block: 0;
+    left: -55%;
+    width: 35%;
+    transform: skewX(-24deg);
+    background: linear-gradient(90deg, transparent, color-mix(in srgb, var(--accent-2) 24%, transparent), transparent);
+    opacity: 0;
+    pointer-events: none;
+  }
+
+  &:hover,
+  &:focus-visible {
+    transform: translateY(-1px);
+    border-color: var(--accent-2);
+    box-shadow: 0 0 0 3px color-mix(in srgb, var(--accent-2) 12%, transparent);
+  }
+
+  &:hover::after,
+  &:focus-visible::after {
+    opacity: 1;
+    animation: header-sweep 520ms var(--ease-brand) both;
+  }
+
+  &:active {
+    transform: scale(0.96);
+  }
+}
+
+@keyframes header-sweep {
+  from {
+    left: -55%;
+  }
+
+  to {
+    left: 125%;
+  }
+}
+
+[data-contrast="high"] .header-control::after {
+  display: none;
+}
+
 /* Paralaxe mínima: --px/--py (−1…1) definidos por JS apenas com ponteiro fino. */
 @utility parallax {
   transform: translate3d(calc(var(--px, 0) * var(--depth, 0) * 1px), calc(var(--py, 0) * var(--depth, 0) * 1px), 0);
